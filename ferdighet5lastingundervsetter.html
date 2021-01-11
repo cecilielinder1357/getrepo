@@ -1,0 +1,32 @@
+  
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Loade under vs etter</title>
+</head>
+<body>
+    <p>Ferdighet 5 - Kode som kjøres når siden lastes vs kode i en funksjon (etter siden lastes).</p>
+    
+    <button onclick="doClick()">Trykk her for å reloade siden</button>
+
+    <div id = 'a'> </div>
+    <div id = 'b'> </div>
+    
+    <!-- Skjer når siden lastes -->
+    <script>
+        // alert('Under lasting av siden: ');
+        document.getElementById('a').innerHTML = '' + new Date().toTimeString();
+
+        // Skjer når siden er lastet.
+        function doClick() {
+            // alert('Etter lasting av siden: ');
+            document.getElementById('b').innerHTML = '' + new Date().toTimeString();
+        }
+    </script>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Two_Elephants_in_Addo_Elephant_National_Park.jpg/1200px-Two_Elephants_in_Addo_Elephant_National_Park.jpg" alt="Snow Landscape" height= 200 onload="doClick()">
+
+</body>
+</html>

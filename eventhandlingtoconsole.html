@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Ferdighet 2A</title>
+</head>
+
+<body>
+    <h1 style ="color:red; font-family:'Courier New', Courier, monospace; text-transform:uppercase;">
+        Ferdighet 2A - Alternative eventhandlere: onclclick, oncontextmenu og onkeydown.</h1>
+
+    <h2 id="info"></h2>
+
+    <button id="demo" ondblclick="testDoubleClick()">Doublelick here to see another color</button>
+
+    <div oncontextmenu="testonContextMenu()" contextmenu="menu" style ="font-weight:bold;"><br><br>Main menu</div>
+
+    <ul>
+        <li><a href="https://www.homeandcottage.no/">Home</a></li>
+        <li><a href="https://www.bbc.com/news/world">News</a></li>
+        <li><a href="https://www.nationalgeographic.com/science/2020/11/mysterious-fast-radio-burst-spotted-milky-way-first-time/">Contact</a></li>
+        <li><a href="https://parade.com/937586/parade/life-quotes/">About</a></li>
+    </ul>
+
+    <p><br>Fyll inn tekst her</p>
+    <input type="text" onkeydown="testonkeydown()">
+    
+    <button id="demo" style="background-color:royalblue" ondblclick="testEnter()">Enter</button>
+
+    <a href="https://www.w3schools.com/jsref/dom_obj_event.asp"><br><br> Mer informasjon her om ferdighet 2A</a>
+    
+    <script>
+
+        function testDoubleClick() {
+            document.getElementById('demo').style.color = "red";
+            console.log({testDoubleClick});
+        }
+
+        function testonContextMenu() {
+            document.getElementById('info').innerHTML += '<li>ContextMenu</li>';
+            console.log({testonContextMenu});
+        }
+
+        function testonkeydown() {
+            document.getElementById('info').innerHTML += '<li>onkeydown</li>';
+            console.log({testonkeydown});
+        }
+
+        function testEnter() {
+            alert("You clicked the button!");
+            console.log({testEnter});
+        }
+        
+        type = "text/javascript" > console.log;
+
+    </script>
+
+
+</body>
+</html>

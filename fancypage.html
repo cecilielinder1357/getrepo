@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Fancy page</title>
+<style>
+    body {
+        background-color:lightpink;
+            padding:0;
+            margin:0;
+    }
+
+    div.page {
+        display:grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: 20px 10fr 20px;
+        grid-template-areas:'title header'
+                            'header maincontent'
+                            'info info';
+    }
+
+    div.title {
+        background-color:deeppink;
+        grid-area:title; 
+    }
+
+    div.header {
+        background-color:darkorchid;
+        grid-area:header;
+    }
+
+    div.maincontent {
+        background-color:darkslateblue;
+        grid-area:maincontent;
+    }
+
+    div.info {
+        background-color:purple;
+        grid-area:info;
+    }
+
+    @media only screen and (max-width: 600px) {
+        div.page {
+            grid-template-columns: 1fr;
+            grid-template-rows: 20px 1 fr 4fr 20 px;
+            grid-template-areas: 'title'
+                                 'header'
+                                 'maincontent'
+                                 'info';
+        }
+    }
+    
+</style>
+</head>
+<body>
+    
+<div class ="page">
+    <div class="title">Title</div>
+    <div class="header">Header</div>
+    <div class="maincontent">Maincontent</div>
+    <div class="info">Info</div>
+</div>
+
+</body>
+</html>

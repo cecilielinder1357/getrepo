@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p>Ferdighet 2 - Onclick => Kjøre funksjon som endrer innerHTML til element ut fra Id</p>
+    <h2 id="aaa">AAAAAAAAAAAAAAAA</h2>
+    <h2 onclick="doSomething()">BBBBBBBBBBBBBBBB</h2>
+
+    <script>
+        function doSomething() {
+            document.getElementById('aaa').innerHTML = 'CCCCCCCCCCCCCCCC';
+        }
+    </script>
+</body>
+</html>

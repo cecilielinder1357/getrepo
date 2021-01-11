@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Ferdighet 3</title>
+</head>
+
+<body>
+
+    <p>Denne html-koden lager en tabell med to rader og to celler: 
+    <table><tr><td>o</td><td>o</td></tr><tr><td>o</td><td>o</td></tr></table>
+    <br> Utvid tabellen med flere rader og flere kolonner. <br>
+    Sørg så for at når man har musepekeren over en celle, 
+    <br> så endrer innholdet seg fra o til x.</p>
+
+    <h1 id="demo" onmouseover="mouseOver()"
+    onmouseout="mouseOut()">
+    <table>
+        <tr>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+        </tr>
+        <tr>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+        </tr>
+        <tr>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+        </tr>
+        <tr>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+            <td onmouseover="mouseOver(this)">o</td>
+        </tr>
+
+    <script>
+        function mouseOver(detManPekerPå) {
+            detManPekerPå.innerHTML = "x";
+        }
+
+    </script>
+
+</body>
+</html>

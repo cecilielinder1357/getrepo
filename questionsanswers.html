@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p1>Ferdighet 2 - Onclick => Kjøre funksjon som endrer innerHTML til element ut fra Id</p>
+    <p1>Quiz med 3 eller flere alternativer, 
+       hvor riktig eller galt kommer opp.
+       når man trykker på et svaralternativ.</p>
+
+    <p2>
+        Hva heter hovedstaden i Bulgaria?
+    </p2>
+    <h2 id="a" style ="color:red"></h2>
+    <h2 id="b" style ="color: green"></h2>
+    <h2 id="c" style ="color:red"></h2>
+    <h2 onclick="doSomething1()">Beograd</h2>
+    <h2 onclick="doSomething2()">Sofia</h2>
+    <h2 onclick="doSomething3()">Roma</h2>
+
+    <script>
+        function doSomething1() {
+            document.getElementById("a").innerHTML = 'Feil..';
+        }
+
+        function doSomething2() {
+            document.getElementById("b").innerHTML = 'Riktig!';
+        }
+
+        function doSomething3() {
+            document.getElementById("c").innerHTML = 'Feil...';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Codelock</title>
+    <style>
+    .button {
+height: 50px;
+width: 50px;
+display: inline-grid;
+cursor: pointer;
+text-align: center;
+float: left;
+}
+
+    .table {
+height: 100px;
+width: 100px;
+color: white;
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 40px;
+font-weight: bold;
+    }
+
+</style>
+</head>
+<body>
+    <p>Ferdighet 4 - <br>
+        Lag en “kodelås” med 9 knapper. Vi tenker oss at for å låse opp <br>
+        må man trykke på knapp 3, så knapp 8, så knapp 1 og så knapp 2. <br>
+        Vi får ikke gjort dette helt ferdig ennå, for vi har ikke lært  <br>
+        if-setninger, men vis i en egen div alle tallene som er trykket <br>
+        på så langt. Det vil si at om man har trykket først 1, så 2 og  <br>
+        så 3, skal teksten "1-2-3" vises i en div på skjermen. </p>
+
+    <h1> Codelock</h1>
+
+    <p> Click on 3, 8, 1 and 2 to open the codelock.</p>
+       
+    <!--Kodelåsen in the making-->
+
+    <div id=codelock> <center>
+    <div style="background-color: yellow" class="button" onclick="click(this)">1</button>
+    <div style="background-color: orange" class="button" onclick="click(this)">2</div>
+    <div style="background-color: red" class="button" onclick="click(this)">3</div>
+
+    <div style="background-color: darkorchid" class="button" onclick="click(this)">4</div>
+    <div style="background-color: purple" class="button" onclick="click(this)">5</div>
+    <div style="background-color: darkblue" class="button" onclick="click(this)">6</div>
+
+    <div style="background-color: royalblue" class="button" onclick="click(this)">7</div>
+    <div style="background-color: green" class="button" onclick="click(this)">8</div>
+    <div style="background-color: lightgreen" class="button" onclick="click(this)">9</div>
+    </center>
+
+        <p id = codelock></p>
+    </div>
+    
+    <script>
+        var number = "";
+        var txt = document.getElementById('codelock');
+
+        function click(button) {
+            if(number.length == 5)
+            clear();
+            txt.innerHTML = "Wrong combination"
+            }
+        }
+
+            else if(number == 3812") {
+                clear();
+                txt.innerHTML = "Congratulations, you hacve successfully opened the codelock!"
+            }
+        }
+
+            else {
+            number += button;
+            txt.innerHTML = number;
+            }
+        }
+
+            function clear();
+                number = "";
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+body {
+    background-color:lightblue; 
+    color:blue; 
+    margin: 20px; 
+    padding: 40px;
+}
+
+h1 {
+    color:red;
+    text-align:left;
+} 
+
+p {
+    color:pink;
+    text-align: right;
+}
