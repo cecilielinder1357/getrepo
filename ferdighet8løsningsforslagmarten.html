@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 8</title>
+</head>
+<body id="resultat" onload="showDiv()">
+    <script>
+        function number(min, max) {
+            return Math.floor(Math.random() * (max - min) ) + min;
+        }
+        var resultatDiv = document.getElementById('resultat');
+        var resultatHtmlDiv = document.getElementById('resultatHtml');
+        showDiv();
+
+        function showDiv() {
+            var h = number(100, 800);
+            var w = number(100, 800);
+            var bt = number(1,10)
+            resultatDiv.innerHTML = '<div style="'
+                + 'background-color: firebrick;'
+                + 'width: ' + w + 'px;'
+                + 'height: ' + h + 'px;'
+                + 'border-color: darkslategray ;'
+                + 'border-style: solid ;'
+                + 'border-width:' + bt + 'px;'
+                + '">' 
+                + "Width= " + w + " Height= " + h +" Borderthickness= "+ bt
+
+                +'</div>';
+        }
+
+    </script>
+</body>
+</html>

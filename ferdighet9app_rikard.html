@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title style=>Event application</title>
+    <style>
+        /* Style of the buttons*/
+        div {
+            text-align: center;
+            color: grey;
+            width: 200px;
+        }
+
+        .A {
+            background-color: blueviolet;
+        }
+
+        .B {
+            border: 1px solid deeppink;
+        }
+
+        .C {
+            color: blue;
+        }
+
+        .D {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .E {
+            font-size: 200%;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Heading-->
+    <h2>EVENT APPLICATION</h2>
+
+    <!--Div's with functions to what happens when button is pushed-->
+    <div style="font-weight:bold" id="boxA" onclick="selectedDiv(this)">Tekst<br></div>
+    <div style="font-weight:bold" id="boxB" onclick="selectedDiv(this)">Tekst<br></div>
+    <div style="font-weight:bold" id="boxC" onclick="selectedDiv(this)">Tekst<br></div>
+    <div style="font-weight:bold" id="boxD" onclick="selectedDiv(this)">Tekst<br></div>
+    <div style="font-weight:bold" id="boxE" onclick="selectedDiv(this)">Tekst<br></div>
+
+    <!-- Putting the checkboxs together -->
+    <input id="A" type="checkbox" onchange="push(this)">Check to change background color. <br><br></input>
+    <input id="B" type="checkbox" onchange="push(this)">Check to see a border. <br><br></input>
+    <input id="C" type="checkbox" onchange="push(this)">Check to see another color. <br><br></input>
+    <input id="D" type="checkbox" onchange="push(this)">Check to see another font. <br><br></input>
+    <input id="E" type="checkbox" onchange="push(this)">Check to see the text change size. <br><br></input>
+
+
+    <script>
+        var boxA = document.getElementById('boxA');
+        var boxB = document.getElementById('boxB');
+        var boxC = document.getElementById('boxC');
+        var boxD = document.getElementById('boxD');
+        var boxE = document.getElementById('boxE');
+
+        // Starting with the 'A' id.
+        var chooseDiv = document.getElementById('A');
+
+        function selectedDiv(div) {
+            // Writing everything to console to see output and possible errors.
+            console.log(div);
+            // Remove the chosen box.
+            // chooseDiv.classList.remove('A');
+            // Choose a box again.
+            // x.classList.toggle('A');
+            // Save the chosen to be able to choose it later.
+            chooseDiv = div;
+
+            // The chosen boxes.
+            boxA.checked = chooseDiv.classList.contains('A');
+            boxB.checked = chooseDiv.classList.contains('B');
+            boxC.checked = chooseDiv.classList.contains('C');
+            boxD.checked = chooseDiv.classList.contains('D');
+            boxE.checked = chooseDiv.classList.contains('E');
+        }
+
+        function push(checkbox) {
+            if (checkbox.checked) {
+                chooseDiv.classList.add(checkbox.id);
+            }
+            else {
+                chooseDiv.classList.remove(checkbox.id);
+            }
+
+            // chooseDiv.classList.toggle(y.id);  //id'en til checken har samme name som class - nei skulle du sett for et sammentreff...
+        }
+    </script>
+</body>
