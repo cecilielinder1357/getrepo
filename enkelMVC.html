@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Litt MVC :D</title>
+</head>
+<body>
+    
+    <div id="output"></div>
+
+    <script>
+        var outputDiv = document.getElementById('output');
+
+        //OPPGAVE! 
+        //Lag en ny knapp som gjør (det samme) nummeret MINDRE 
+
+        //MODEL
+            var numberCounter = 0;
+
+
+        //VIEW
+        drawHTMLview();
+        function drawHTMLview(){
+            var html = `
+            <div> ${numberCounter} </div>
+            <button onclick="increaseNumber()">Increase Number</button>
+            <button onclick="decreaseNumber()">Decrease Number</button>
+            `;
+
+            outputDiv.innerHTML = html;
+        }
+
+
+        //CONTROLLER
+        function increaseNumber(){
+            numberCounter++;
+            drawHTMLview();
+        }
+
+        //CONTROLLER
+        function decreaseNumber(){
+            numberCounter--;
+            drawHTMLview();
+        }
+
+    </script>
+
+</body>
+</html>
