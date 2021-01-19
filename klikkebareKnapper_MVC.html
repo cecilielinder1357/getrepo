@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 2 - this + funkiser &&& MVC! </title>
+    <style>
+        .buttons{
+            width: 100px;
+            height: 100px;
+            border: 2px dotted hotpink;
+            margin: 20px;
+            float: left;
+        }
+        #display{
+            width: 300px;
+            height: 40px;
+            border: 2px solid plum;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="output"></div>
+    <!-- <div id="display" >  </div>
+
+    <div class="buttons" onclick="selectDiv(this)">  1 </div>
+    <div class="buttons" onclick="selectDiv(this)">  2 </div>
+    <div class="buttons" onclick="selectDiv(this)">  3 </div>
+    
+    <button onclick="clearDisplay()">CLEAR </button> -->
+
+
+    <script>
+        var output = document.getElementById('output');
+        // var displayDiv = document.getElementById('display');
+
+        // function selectDiv(clickedDiv){
+        //     displayDiv.innerHTML += clickedDiv.innerHTML;
+        // }
+
+        // function clearDisplay(){
+        //     displayDiv.innerHTML = '';
+        // }
+
+
+        //MODEL - her ligger alt av data/verdier
+            var ourNumbers = "";
+
+
+        //VIEW   - det vi ser på skjermen :) - bruker kan trøkke på ting
+        view();
+        function view(){
+            output.innerHTML = `
+            <div id="display"> ${ourNumbers} </div>
+            <div class="buttons" onclick="selectDiv(this)"> 1 </div>
+            <div class="buttons" onclick="selectDiv(this)"> 2 </div>
+            <div class="buttons"  onclick="selectDiv(this)"> 3 </div>
+            
+            <button onclick="clearDisplay()">CLEAR</button>
+            `;
+        }
+
+
+        //CONTROLLER - endrer verdier i modellen
+        function selectDiv(clickedDiv){
+            ourNumbers +=  clickedDiv.innerHTML;
+            view();
+        }
+
+        function clearDisplay(){
+            ourNumbers = "";
+            view();
+        }
+    </script>
+
+</body>
+</html>
