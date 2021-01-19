@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // model
+        var input = '';
+        var red = 120;
+
+        // controller
+        function addDigit(digit) {
+            input += digit;
+            updateView();
+        }
+
+        function reset(){
+            input = '';
+            updateView();
+        }
+
+        function moreRed(){
+            red += 10;
+            updateView();
+        }
+
+        // view 
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+                <div id="screen" style="background-color: rgb(${red},0,40)">Kode: ${input}</div>
+                <button onclick="addDigit(1)">1</button>
+                <button onclick="addDigit(2)">2</button>
+                <button onclick="addDigit(3)">3</button>
+                <button onclick="addDigit(4)">4</button>
+                <button onclick="addDigit(5)">5</button>
+                <button onclick="addDigit(6)">6</button>
+                <button onclick="addDigit(7)">7</button>
+                <button onclick="addDigit(8)">8</button>
+                <button onclick="addDigit(9)">9</button>
+                <button onclick="addDigit(0)">0</button>       
+                <hr/>
+                <button onclick="reset()">Blank</button><br/>
+                <button onclick="moreRed()">Mer rødt</button>
+            `;
+        }
+    </script>
+
+</body>
+
+</html>
