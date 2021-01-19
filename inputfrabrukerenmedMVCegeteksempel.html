@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Navn, alder og land</title>
+</head>
+
+<body>
+
+    <!--Det eneste som er av HTML i scriptet, resten skal være i Java-->
+    <div id="app"></div>
+
+    <script>
+        // model, hva som forandrer seg på siden og hva skal tegnes.
+        var personName = null;
+        var age = null;
+        var country = null;
+
+        // view. Her trenger vi ikke "id"-er så de tar vi bort.
+        updateView();
+        function updateView() {
+            var nameTxt = personName ? `Hei, ${personName}!` : 'Fyll ut navn i tekstfeltet.';
+            var ageTxt = age ? `Du er ${age} år gammel.` : 'Velg alder i slideren.';
+            var countryTxt = country ? `Landet du bor i heter ${country}.` : 'Fyll inn land.';
+            document.getElementById('app').innerHTML = `
+                Hva heter du? <br/>
+                <input 
+                    type="text" 
+                    oninput="personName = this.value; "
+                    value="${personName || ''}"
+                />
+                <br/>
+                Hvor gammel er du? <br/>
+                <input 
+                    type="range" 
+                    min="1" 
+                    max="120" 
+                    step="1" 
+                    value="${age || 20}"
+                    oninput="age = this.value; "                    
+                />
+                <br/>
+                Hva heter landet du bor i? <br/>
+                <input
+                    type="text"
+                    oninput="country = this.value; "
+                    value="${country || ''}"
+                />
+                <br/>
+                <button onclick="register()">Registrer</button>
+                <h3>Se her:</h3>
+                <hr/>
+                ${nameTxt}
+                <hr/>
+                ${ageTxt}
+                <hr/>
+                ${countryTxt}
+                <hr/>
+                `;
+        }
+
+        function register(){
+            alert(personName + ' ' + age + ' ' + country);
+            updateView();
+        }
+    </script>
+</body>
+
+</html>
