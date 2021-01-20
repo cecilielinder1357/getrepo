@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <title>Magical frog puzzle</title>
+    <style>
+        
+        /* The style of the puzzle*/
+        #puzzle {
+            /* Setting the display behavior of the puzzle element, setting the puzzle to */
+            /* start on a new line and taking up the entire width, along with the margin.*/
+            display: block;
+            margin: 0 auto;
+        }
+
+        #background {
+            /* Setting the opacity for the background of the puzzle element. */
+            opacity: 0.3;
+        }
+
+    </style>
+
+    <body>
+        <!--This is the making of the puzzle itself with its 16 pieces
+        with width, height, id's for the parts and classes.-->
+        <svg width="1500" height="1000" id="puzzle">
+            <g id="background"><image xlink:href="https://brorviking.github.io/GEThub/FROGE2.png" width="1200" height="700" x="200" y="100"></g>
+            <g class="part" id="1"><image xlink:href="https://brorviking.github.io/GEThub/row-1-col-1.jpg " class="move"></g>
+            <g class="part" id="2"><image xlink:href="https://brorviking.github.io/GEThub/row-1-col-2.jpg" class="move"></g>
+            <g class="part" id="3"><image xlink:href="https://brorviking.github.io/GEThub/row-1-col-3.jpg" class="move"></g>
+            <g class="part" id="4"><image xlink:href="https://brorviking.github.io/GEThub/row-1-col-4.jpg" class="move"></g>
+            <g class="part" id="5"><image xlink:href="https://brorviking.github.io/GEThub/row-2-col-1.jpg" class="move"></g>
+            <g class="part" id="6"><image xlink:href="https://brorviking.github.io/GEThub/row-2-col-2.jpg" class="move"></g>
+            <g class="part" id="7"><image xlink:href="https://brorviking.github.io/GEThub/row-2-col-3.jpg" class="move"></g>
+            <g class="part" id="8"><image xlink:href="https://brorviking.github.io/GEThub/row-2-col-4.jpg" class="move"></g>
+            <g class="part" id="9"><image xlink:href="https://brorviking.github.io/GEThub/row-3-col-1.jpg" class="move"></g>
+            <g class="part" id="10"><image xlink:href="https://brorviking.github.io/GEThub/row-3-col-2.jpg" class="move"></g>
+            <g class="part" id="11"><image xlink:href="https://brorviking.github.io/GEThub/row-3-col-3.jpg" class="move"></g>
+            <g class="part" id="12"><image xlink:href="https://brorviking.github.io/GEThub/row-3-col-4.jpg" class="move"></g>
+            <g class="part" id="13"><image xlink:href="https://brorviking.github.io/GEThub/row-4-col-1.jpg" class="move"></g>
+            <g class="part" id="14"><image xlink:href="https://brorviking.github.io/GEThub/row-4-col-2.jpg" class="move"></g>
+            <g class="part" id="15"><image xlink:href="https://brorviking.github.io/GEThub/row-4-col-3.jpg" class="move"></g>
+            <g class="part" id="16"><image xlink:href="https://brorviking.github.io/GEThub/row-4-col-4.jpg" class="move"></g>
+        </svg>
+
+    <!--Another picture will appear when the puzzle is complete-->
+    <img id="image" src=""><img>
+
+    <!--A song has been added to play when the puzzle is complete-->
+    <audio id="win" src=""></audio>
+        
+        <script>
+
+        // Defining the variables that will change on the page.
+        var pieces = document.getElementsByClassName('move');
+
+        var Width = [134,192,134,163,134,163,134,192,134];
+        var Height = [163,134,163,134,192,134,163,134,163];
+        
+        // 
+        for(var i=1;i<pieces.length;i++){
+        pieces[i].setAttribute("width", Width[i]);
+        pieces[i].setAttribute("height",Height[i]);
+        pieces[i].setAttribute("x", Math.floor((Math.random() * 10) + 1));
+        pieces[i].setAttribute("y", Math.floor((Math.random() * 409) + 1));
+        pieces[i].setAttribute("onmousedown","selectElement(evt)");
+        }
+        
+        // Defining the variables for the selected element, current and current position.
+        var elementSelect = 0;  
+        var currentX = 0;
+        var currentY = 0;
+        var currentPosX = 0;
+        var currentPosY = 0;
+
+        // Making a function to make the parts of the puzzle move.
+        function selectElement(evt) {
+            elementSelect = reorder(evt);
+            currentX = evt.clientX;        
+            currentY = evt.clientY;
+            currentPosx = parseFloat(elementSelect.getAttribute("x"));     
+            currentPosy = parseFloat(elementSelect.getAttribute("y"));
+            elementSelect.setAttribute("onmousemove","moveElement(evt)");
+        }
+
+        // Making a function to select new parts.
+        function moveElement(evt){
+            var dx = evt.clientX - currentX;
+            var dy = evt.clientY - currentY;
+            currentPosx = currentPosx + dx;
+            currentPosy = currentPosy + dy;
+            elementSelect.setAttribute("x",currentPosx);
+            elementSelect.setAttribute("y",currentPosy);
+            currentX = evt.clientX;        
+            currentY = evt.clientY;
+            elementSelect.setAttribute("onmouseout","reselectElement(evt)");
+            elementSelect.setAttribute("onmouseup","reselectElement(evt)");
+            magnet();
+        }
+
+        // Making a function to select another element.
+        function reselectElement(evt){
+            testing();
+            if(elementSelect != 0){			
+                elementSelect.removeAttribute("onmousemove");
+                elementSelect.removeAttribute("onmouseout");
+                elementSelect.removeAttribute("onmouseup");
+                elementSelect = 0;
+            }
+        }
+
+        // Defining the puzzle variable.
+        var puzzle = document.getElementById('puzzle');
+
+        // 
+        function reorder(evt){
+            var part = evt.target.parentNode;
+            var clone = part.cloneNode(true);
+            var id = part.getAttribute("id");
+            puzzle.removeChild(document.getElementById(id));
+            puzzle.appendChild(clone);
+            return puzzle.lastChild.firstChild;
+        }
+
+        // Defining the last variables.
+        var origX = [200,304,466,200,333,437,200,304,466];   
+        var origY = [100,100,100,233,204,233,337,366,337];
+
+        // Making a function to 
+        function magnet(){
+            for(var i=0;i<pieces.length;i++){
+                if (Math.abs(currentPosx-origX[i])<15 && Math.abs(currentPosy-origY[i])<15) {
+                    elementSelect.setAttribute("x",origX[i]);
+                    elementSelect.setAttribute("y",origY[i]);
+                }
+            }
+        }
+                    
+        var win = document.getElementById("win");
+
+        function testing() {
+            var rightLocation = 0;
+            var parts = document.getElementsByClassName('part');
+            for(var i=0;i<pieces.length;i++){
+                var posx = parseFloat(parts[i].firstChild.getAttribute("x"));    
+                var posy = parseFloat(parts[i].firstChild.getAttribute("y"));
+                ide = parts[i].getAttribute("id");
+                if(origX[ide] == posx && origY[ide] == posy){
+                    rightLocation = rightLocation + 1;
+                }
+            }
+            if(rightLocation == 9){
+                img.play();
+                win.play();
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>
