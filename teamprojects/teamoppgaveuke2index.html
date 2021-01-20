@@ -22,24 +22,24 @@
     <body>
         <!--This is the making of the puzzle itself with its 16 pieces
         with width, height, id's for the parts and classes.-->
-        <svg width="1500" height="1000" id="puzzle">
-            <g id="background"><image xlink:href="https://brorviking.github.io/GEThub/Froge/FROGE2.png"" height="700" x="200" y="100"></g>
-            <g class="part" id="1"><image xlink:href="https://brorviking.github.io/GEThub/row-1-col-1.jpg " class="move"></g>
-            <g class="part" id="2"><image xlink:href="https://brorviking.github.io/GEThub/row-1-col-2.jpg" class="move"></g>
-            <g class="part" id="3"><image xlink:href="https://brorviking.github.io/GEThub/row-1-col-3.jpg" class="move"></g>
-            <g class="part" id="4"><image xlink:href="https://brorviking.github.io/GEThub/row-1-col-4.jpg" class="move"></g>
-            <g class="part" id="5"><image xlink:href="https://brorviking.github.io/GEThub/row-2-col-1.jpg" class="move"></g>
-            <g class="part" id="6"><image xlink:href="https://brorviking.github.io/GEThub/row-2-col-2.jpg" class="move"></g>
-            <g class="part" id="7"><image xlink:href="https://brorviking.github.io/GEThub/row-2-col-3.jpg" class="move"></g>
-            <g class="part" id="8"><image xlink:href="https://brorviking.github.io/GEThub/row-2-col-4.jpg" class="move"></g>
-            <g class="part" id="9"><image xlink:href="https://brorviking.github.io/GEThub/row-3-col-1.jpg" class="move"></g>
-            <g class="part" id="10"><image xlink:href="https://brorviking.github.io/GEThub/row-3-col-2.jpg" class="move"></g>
-            <g class="part" id="11"><image xlink:href="https://brorviking.github.io/GEThub/row-3-col-3.jpg" class="move"></g>
-            <g class="part" id="12"><image xlink:href="https://brorviking.github.io/GEThub/row-3-col-4.jpg" class="move"></g>
-            <g class="part" id="13"><image xlink:href="https://brorviking.github.io/GEThub/row-4-col-1.jpg" class="move"></g>
-            <g class="part" id="14"><image xlink:href="https://brorviking.github.io/GEThub/row-4-col-2.jpg" class="move"></g>
-            <g class="part" id="15"><image xlink:href="https://brorviking.github.io/GEThub/row-4-col-3.jpg" class="move"></g>
-            <g class="part" id="16"><image xlink:href="https://brorviking.github.io/GEThub/row-4-col-4.jpg" class="move"></g>
+        <svg width="1200" height="700" id="puzzle">
+            <g id="background"><image xlink:href="https://brorviking.github.io/GEThub/Froge/FROGE2.png" width="768" height="560" x="232" y="130"></g>
+            <g class="part" id="1"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-1-col-1.jpg" class="move"></g>
+            <g class="part" id="2"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-1-col-2.jpg" class="move"></g>
+            <g class="part" id="3"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-1-col-3.jpg" class="move"></g>
+            <g class="part" id="4"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-1-col-4.jpg" class="move"></g>
+            <g class="part" id="5"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-2-col-1.jpg" class="move"></g>
+            <g class="part" id="6"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-2-col-2.jpg" class="move"></g>
+            <g class="part" id="7"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-2-col-3.jpg" class="move"></g>
+            <g class="part" id="8"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-2-col-4.jpg" class="move"></g>
+            <g class="part" id="9"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-3-col-1.jpg" class="move"></g>
+            <g class="part" id="10"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-3-col-2.jpg" class="move"></g>
+            <g class="part" id="11"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-3-col-3.jpg" class="move"></g>
+            <g class="part" id="12"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-3-col-4.jpg" class="move"></g>
+            <g class="part" id="13"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-4-col-1.jpg" class="move"></g>
+            <g class="part" id="14"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-4-col-2.jpg" class="move"></g>
+            <g class="part" id="15"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-4-col-3.jpg" class="move"></g>
+            <g class="part" id="16"><image xlink:href="https://brorviking.github.io/GEThub/Froge/row-4-col-4.jpg" class="move"></g>
         </svg>
 
     <!--Another picture will appear when the puzzle is complete-->
@@ -53,15 +53,15 @@
         // Defining the variables that will change on the page.
         var pieces = document.getElementsByClassName('move');
 
-        var Width = [134,192,134,163,134,163,134,192,134];
-        var Height = [163,134,163,134,192,134,163,134,163];
+        var Width = [134,192,134,163,134,192,134,163,134,163,134,192,134,163,134,192];
+        var Height = [163,134,163,134,192,134,163,134,192,134,163,134,192,134,163,134];
         
         // 
         for(var i=1;i<pieces.length;i++){
         pieces[i].setAttribute("width", Width[i]);
         pieces[i].setAttribute("height",Height[i]);
-        pieces[i].setAttribute("x", Math.floor((Math.random() * 10) + 1));
-        pieces[i].setAttribute("y", Math.floor((Math.random() * 409) + 1));
+        pieces[i].setAttribute("x", Math.floor((Math.random() * 17) + 1));
+        pieces[i].setAttribute("y", Math.floor((Math.random() * 617) + 1));
         pieces[i].setAttribute("onmousedown","selectElement(evt)");
         }
         
@@ -122,10 +122,10 @@
         }
 
         // Defining the last variables.
-        var origX = [200,304,466,200,333,437,200,304,466];   
-        var origY = [100,100,100,233,204,233,337,366,337];
+        var origX = [232,232,232,232,424,424,424,424,616,616,616,616,808,808,808,808];
+        var origY = [174,286,398,510,174,286,398,510,174,286,398,510,174,286,398,510];
 
-        // Making a function to 
+        // Making a function to lock in the pieces in the puzzle.
         function magnet(){
             for(var i=0;i<pieces.length;i++){
                 if (Math.abs(currentPosx-origX[i])<15 && Math.abs(currentPosy-origY[i])<15) {
@@ -134,7 +134,8 @@
                 }
             }
         }
-                    
+           
+        // Defining the winning 
         var win = document.getElementById("win");
 
         function testing() {
