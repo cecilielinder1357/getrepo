@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add and Remove Color - MVC</title>
+    <style>
+      div {
+        height: 200px;
+        width: 200px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="output"></div>
+
+    <script>
+      const outputDiv = document.getElementById("output");
+
+      //MODEL
+      let red = 120;
+
+      //VIEW
+      drawHTML();
+      function drawHTML() {
+        let html = `
+        <div style="background-color: rgb(${red},0,40)""> </div>
+            <button onclick="moreOrLessRed('more')">More Red</button> 
+            <button onclick="moreOrLessRed('less')">Less Red</button>
+            `;
+        outputDiv.innerHTML = html;
+      }
+
+      //CONTROLLER
+      function moreOrLessRed(chosen) {
+        if (chosen == "more") {
+          red = red + 10;
+        } 
+        else if (chosen == "less") {
+          red = red - 10;
+        }
+
+        //det samme gjort med en ternary - bare for gøy ;P
+        //red =    chosen == "more" ? red + 10 : red - 10;
+        drawHTML();
+      }
+    </script>
+  </body>
+</html>

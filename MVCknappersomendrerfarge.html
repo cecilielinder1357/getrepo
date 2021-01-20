@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons that changes color</title>
+        <style>
+            div {
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+            }
+        </style>
+
+</head>
+<body>
+
+    <!--OPPGAVE! Lag en knapp som legger til et bilde! -->
+    
+    <h2>COLOR</h2>
+    <div id="color"></div>
+
+    <script>
+
+        // Defining a variable/const/let, which can be reassigned.
+        const colorDiv = document.getElementById("color");
+
+        // MODEL
+        let redColor = 120;
+
+        // VIEW
+        colorView();
+        function colorView() {
+            var html = `
+                <div style="background-color: rgb(${redColor},0,20)"></div>
+                    <button onclick="addingorremovingColor('adding')">Add more color</button>
+                    <button onclick="addingorremovingColor('removing')">Reduce color</button>
+                    `;
+                colorDiv.innerHTML = html;
+        }
+
+        // CONTROLLER
+        function addingorremovingColor(chosen) {
+        if (chosen == "adding") {
+          redColor = redColor + 10;
+        } 
+        else if (chosen == "removing") {
+          redColor = redColor - 10;
+        }
+        colorView();
+    
+    }
+
+    </script>
+
+</body>
+</html>
