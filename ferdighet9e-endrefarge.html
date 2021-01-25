@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Fargevalg</title>
+</head>
+<body>
+    <p>Her kan du endre farger.</p>
+    
+    <div id="app"></div>
+
+    <button class="button" onclick="endreFarge()">Velg</button>
+
+    <div id="valgtFarge" onchange="endreFarge()"><br /> Her er den valgte bakgrunnsfargen.</div> -->
+
+    <script>
+
+  
+    // Mange document.get'ere  -  vi prøver oss med én og kjører heftig MVC B)
+    var app = document.getElementById('app');
+        var minFarge = document.getElementById('valgtFarge');
+            var valgA = document.getElementById('a');
+            var valgB = document.getElementById('b');
+            var valgC = document.getElementById('c');
+            var valgD = document.getElementById('d');
+            var valgE = document.getElementById('e');
+
+    //MODEL   - datavariebler - variabler som har verdi som endres av controllerne    
+    //en farge skal velges - ergo er farge noe data som kommer til å endres - 
+    // Det høres ut som en model ting! :D starter med white så den har et utgangspunkt
+    var mySelectedColor = "white";
+    
+    // VIEW: La oss tegne det vi skal ha på siden :D
+
+    var html;  
+
+    FargeValg();
+        function FargeValg() {
+            let html = `
+            <div style="background-color:${mySelectedColor};">Her er den valgte fargen.</div>
+            <select  size="5" onchange="endreFarge(this.value)">
+                <option>Svart</option>
+                <option>Mørkeblå</option>
+                <option>Lysegrå</option>
+                <option>Lysegrønn</option>
+                <option>Lyserød</option>
+            </select>
+            `;
+
+app.innerHTML = html;
+        }
+    //denne ligger utenfor funksjonen og blir bare satt én gang - 
+    //bedre å ha hele HTML variablen inni, så den blir oppdatert hver gang viewet kjøres :)
+    
+    minFarge.innerHTML = html;
+
+    // CONTROLLER
+        function endreFarge(valgtFarge) {
+            console.log(valgtFarge)
+            // var erValgtA = valgA;   - usikker på hva som er tenkt her, lage en lokal variabel av en global variabel som er en document.get?
+            // var erValgtB = valgB;
+            // var erValgtC = valgC;
+            // var erValgtD = valgD;
+            // var erValgtE = valgE;
+            //     if (erValgtA == valgA) minFarge.innerHTML += ;   <-- (erValgtA == valgA) på linje 79 blir disse to satt til å ha den samme verdien, så .. de vil alltid være like i if'en her :)
+            //     if (erValgtB == valgB) minFarge.innerHTML += 'darkblue<br/>';
+            //     if (erValgtC == valgC) minFarge.innerHTML += 'lightgrey<br/>';
+            //     if (erValgtD == valgD) minFarge.innerHTML += 'lightgreen<br/>';
+            //     if (erValgtE == valgE) minFarge.innerHTML += 'crimson<br/>';
+            // 
+
+//Jeg tipper noe skal endre bakgrunnsfarge - jeg tror det er ment til at selve selecten skal skifte farge? siden minfarge får beskjed om å skrive teksten som er valgt i seg selv?
+//litt usikker på om en select kan ha bakgrunnsfarge på en enkel måte - så gjør en vri :)
+        
+
+            // fargevalgene i menyen er på norsk - så enten kan man rename options til engelske som finnes i CSS, elelrs så må man lage en if setning for hvert valg 
+//ser ut til at det er lagt opp til sistnevnte? da gjør jeg det.
+if(valgtFarge=="Svart"){mySelectedColor = "black"}
+if(valgtFarge=="Mørkeblå"){mySelectedColor = "navy"}
+if(valgtFarge=="Lysegrå"){mySelectedColor = "gray"}
+if(valgtFarge=="Lysegrønn"){mySelectedColor = "lightgreen"}
+if(valgtFarge=="Lyserød"){mySelectedColor = "crimson"}
+
+
+       
+    
+        FargeValg()
+    }
+
+    </script>
+</body>
+</html>
